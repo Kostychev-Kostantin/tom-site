@@ -13,22 +13,22 @@ export default function Focus() {
     {
       icon: Building2,
       title: "Portfolio Companies",
-      description: "Private equity-backed enterprises seeking rapid transformation",
+      description: "PE-backed companies on a value creation timeline that need AI delivering results now",
     },
     {
       icon: TrendingUp,
       title: "Growth-Stage Firms",
-      description: "Companies scaling operations and market presence",
+      description: "Companies scaling fast that need AI infrastructure to keep up with growth",
     },
     {
       icon: Target,
-      title: "Value Creation",
-      description: "Organizations focused on measurable business outcomes",
+      title: "Outcome-Driven Teams",
+      description: "Leaders who measure success by business impact, not slides delivered",
     },
     {
       icon: Users,
-      title: "Forward-Thinking Leaders",
-      description: "Teams ready to embrace AI-driven competitive advantages",
+      title: "Technical Leadership",
+      description: "CTOs and VPs of Engineering who want a partner, not a vendor",
     },
   ];
 
@@ -46,12 +46,10 @@ export default function Focus() {
         >
           <p className="text-xs text-[hsl(var(--muted))] uppercase tracking-widest mb-3">Who We Serve</p>
           <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-5">
-            Our Focus
+            Built for Growth-Stage and PE-Backed Companies
           </h2>
           <p className="text-[hsl(var(--muted))] text-base leading-relaxed">
-            We partner with <span className="text-foreground">portfolio companies of private equity firms</span> to unlock value through AI-driven transformation.
-            We help growing companies leverage cutting-edge technology and intelligent systems to achieve measurable outcomes,
-            increase market share, and build sustainable competitive advantages.
+            We work best with <span className="text-foreground">private equity portfolio companies</span> and growth-stage businesses that need AI to work — not just an AI strategy deck. If you're under pressure to create value fast, we're built for that.
           </p>
         </motion.div>
 

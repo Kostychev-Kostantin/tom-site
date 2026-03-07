@@ -59,7 +59,7 @@ export default function Header() {
               href="#contact"
               className="border border-foreground text-foreground px-5 py-2 rounded-lg text-sm font-medium hover:bg-foreground hover:text-[hsl(var(--background))] transition-all duration-300"
             >
-              Get Started
+              Talk to Us
             </Link>
           </nav>
 
@@ -99,7 +99,7 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block text-center border border-foreground text-foreground px-6 py-3 rounded-lg text-sm font-medium"
                 >
-                  Get Started
+                  Talk to Us
                 </Link>
               </div>
             </nav>

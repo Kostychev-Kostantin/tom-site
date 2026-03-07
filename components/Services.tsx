@@ -20,9 +20,9 @@ const services = [
     icon: Users,
     title: "Deployed AI Researchers & Engineers",
     description:
-      "Expert AI talent embedded directly in your team—delivering production systems while transferring knowledge and best practices.",
+      "Senior AI engineers and researchers who join your team, ship production code, and upskill your people — not consultants who hand over a PDF.",
     features: ["Embedded Experts", "Knowledge Transfer", "Rapid Delivery"],
-    detailedDescription: "Get immediate access to world-class AI talent without the lengthy hiring process. Our deployed AI researchers and engineers work alongside your team to deliver production systems while transferring knowledge and best practices.",
+    detailedDescription: "Skip the 6-month hiring cycle. Our engineers plug into your workflows from week one — writing production code, conducting code reviews, and mentoring your team. When the engagement ends, your team is stronger.",
     deliverables: [
       "Dedicated AI researchers and engineers",
       "Production-ready AI systems",
@@ -31,15 +31,15 @@ const services = [
       "Ongoing architecture guidance"
     ],
     timeline: "Flexible (3-12+ months)",
-    idealFor: "Organizations needing immediate AI expertise to accelerate projects or bridge capability gaps"
+    idealFor: "Teams that need senior AI talent now, not in six months"
   },
   {
     icon: Brain,
     title: "AI Use Case Development",
     description:
-      "Strategic identification and implementation of AI applications that drive measurable ROI and competitive advantage.",
+      "We find the AI use cases that actually move your P&L — then build and deploy them.",
     features: ["ROI Analysis", "Proof of Concept", "Production Deployment"],
-    detailedDescription: "We help you identify, prioritize, and implement AI use cases that deliver measurable ROI. From initial feasibility studies through production deployment, we ensure your AI investments drive real business value.",
+    detailedDescription: "Most companies have a backlog of AI ideas and no way to prioritize them. We assess feasibility, estimate ROI, build proof of concepts, and deploy the winners into production.",
     deliverables: [
       "AI opportunity assessment",
       "Prioritized use case portfolio",
@@ -48,15 +48,15 @@ const services = [
       "Performance monitoring dashboards"
     ],
     timeline: "3-6 months",
-    idealFor: "Enterprises ready to move beyond AI experiments into production-grade implementations"
+    idealFor: "Companies with AI ambitions that haven't translated into production results yet"
   },
   {
     icon: Database,
-    title: "Data Engineering Agents",
+    title: "Data Infrastructure & Pipelines",
     description:
-      "Automated, self-healing data pipelines that scale infrastructure and deliver real-time insights at enterprise scale.",
+      "Reliable, automated data pipelines that get the right data to the right place — on time and at scale.",
     features: ["Pipeline Automation", "Real-Time Processing", "Data Quality"],
-    detailedDescription: "Transform your data infrastructure with intelligent, self-healing pipelines that scale automatically. Our agentic approach reduces operational overhead while improving data quality and reliability.",
+    detailedDescription: "Bad data infrastructure kills AI projects before they start. We build automated pipelines that monitor data quality, scale with your business, and reduce the manual work your team hates.",
     deliverables: [
       "Automated ETL/ELT pipelines",
       "Real-time data streaming",
@@ -65,15 +65,15 @@ const services = [
       "Scalable architecture"
     ],
     timeline: "4-8 weeks",
-    idealFor: "Organizations struggling with data silos, quality issues, or scaling challenges"
+    idealFor: "Organizations whose data issues are blocking AI progress"
   },
   {
     icon: Sparkles,
     title: "Generative AI & LLM Solutions",
     description:
-      "Custom LLMs and generative AI systems that automate workflows, transform CX, and unlock new capabilities.",
+      "Custom AI assistants, RAG systems, and LLM-powered workflows — built on your data, integrated into your stack.",
     features: ["Custom LLM Fine-tuning", "RAG Systems", "AI Agents"],
-    detailedDescription: "Harness the power of generative AI with custom solutions built on cutting-edge LLMs. From intelligent chatbots to document processing and content generation, we build production-grade systems that integrate seamlessly with your business.",
+    detailedDescription: "We build the AI tools your team will actually use — document Q&A, internal assistants, content generation, and custom agents. Everything runs on your data with proper guardrails and compliance controls.",
     deliverables: [
       "Fine-tuned language models",
       "Retrieval-augmented generation (RAG) systems",
@@ -82,7 +82,7 @@ const services = [
       "Safety and compliance guardrails"
     ],
     timeline: "4-8 weeks",
-    idealFor: "Companies looking to leverage ChatGPT-like capabilities with proprietary data and custom workflows"
+    idealFor: "Teams that want ChatGPT-level capabilities with their own data and security requirements"
   },
 ];
 
@@ -208,7 +208,7 @@ function ServiceModal({ service, isOpen, onClose }: { service: typeof services[0
                   onClick={onClose}
                   className="block w-full bg-foreground text-[hsl(var(--background))] text-center px-6 py-3.5 rounded-lg font-medium text-sm hover:bg-white transition-all duration-300"
                 >
-                  Get Started
+                  Discuss This With Our Team
                 </a>
               </div>
             </div>
@@ -249,10 +249,10 @@ export default function Services() {
         >
           <p className="text-xs text-[hsl(var(--muted))] uppercase tracking-widest mb-3">What We Do</p>
           <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-3">
-            Our Services
+            How We Help
           </h2>
           <p className="text-[hsl(var(--muted))] text-sm max-w-xl leading-relaxed">
-            End-to-end AI solutions—from strategy to production. Expert talent embedded in your team, not just consulting.
+            From embedded AI talent to production-grade systems — we do the work, not just the advising.
           </p>
         </motion.div>
 

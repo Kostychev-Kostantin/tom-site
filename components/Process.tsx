@@ -5,12 +5,12 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const phases = [
-  { title: "Alignment", description: "KPI definition & data audit." },
-  { title: "Design", description: "Architecture & agent logic." },
-  { title: "Testing", description: "Sandboxed evaluation." },
-  { title: "Deployment", description: "Production rollout." },
-  { title: "Transfer", description: "Team training & docs." },
-  { title: "Optimization", description: "Continuous improvement." },
+  { title: "Alignment", description: "We define success metrics and audit your data readiness." },
+  { title: "Design", description: "We design the system architecture and integration plan." },
+  { title: "Build", description: "We build in a sandboxed environment with continuous testing." },
+  { title: "Deploy", description: "We roll out to production with monitoring in place." },
+  { title: "Transfer", description: "We train your team and hand over full documentation." },
+  { title: "Optimize", description: "We help you iterate based on real-world performance." },
 ];
 
 export default function Process() {
@@ -30,7 +30,7 @@ export default function Process() {
           className="mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight">
-            Implementation Protocol
+            How Every Engagement Works
           </h2>
         </motion.div>
 

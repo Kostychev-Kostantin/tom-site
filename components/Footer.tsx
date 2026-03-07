@@ -23,7 +23,7 @@ export default function Footer() {
               Top of Mind Labs
             </span>
             <p className="text-[hsl(var(--muted))] text-sm leading-relaxed max-w-xs">
-              Transforming enterprises with AI-native systems that drive measurable business outcomes.
+              AI researchers and engineers, embedded in your team.
             </p>
           </div>
 

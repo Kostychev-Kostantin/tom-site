@@ -8,23 +8,23 @@ import { Users, Zap, TrendingUp, Clock } from "lucide-react";
 const benefits = [
   {
     icon: Clock,
-    title: "3-6 Month Time to Value",
-    description: "Production-ready systems in months, not years.",
+    title: "Production in Months, Not Years",
+    description: "Most engagements deliver working production systems within 3-6 months.",
   },
   {
     icon: TrendingUp,
-    title: "Proven ROI",
-    description: "40% average cost reduction and 3x efficiency gains within first year.",
+    title: "ROI You Can Measure",
+    description: "Our clients see measurable cost reductions and efficiency gains within the first year of deployment.",
   },
   {
     icon: Users,
-    title: "True Partnership",
-    description: "We work alongside your team, ensuring knowledge transfer and long-term success.",
+    title: "Your Team Gets Stronger",
+    description: "We don't create dependencies. Every engagement includes hands-on training so your team can run things after we leave.",
   },
   {
     icon: Zap,
-    title: "Production-First Mindset",
-    description: "We don't just build models—we build systems that work reliably at scale.",
+    title: "Built for Production, Not Demos",
+    description: "No science projects. Every system we build is designed to handle real traffic, real data, and real edge cases.",
   },
 ];
 
@@ -46,10 +46,10 @@ export default function WhyUs() {
         >
           <p className="text-xs text-[hsl(var(--muted))] uppercase tracking-widest mb-3">Our Advantage</p>
           <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-3">
-            Why Top of Mind Labs
+            Why Teams Choose Us
           </h2>
           <p className="text-[hsl(var(--muted))] text-sm max-w-xl leading-relaxed">
-            We&apos;re not just consultants—we&apos;re your technical partners committed to measurable outcomes.
+            We build. We ship. We transfer knowledge. Then your team owns it.
           </p>
         </motion.div>
 
@@ -87,17 +87,17 @@ export default function WhyUs() {
         >
           <div>
             <h3 className="text-base font-medium text-foreground mb-0.5">
-              Ready to Transform Your Business?
+              See if we&apos;re the right fit
             </h3>
             <p className="text-[hsl(var(--muted))] text-sm">
-              Join 50+ enterprises already seeing results.
+              Most conversations start with a 30-minute call.
             </p>
           </div>
           <a
             href="#contact"
             className="flex-shrink-0 bg-foreground text-[hsl(var(--background))] px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-white transition-all duration-300"
           >
-            Start Your Journey
+            Book a Call
           </a>
         </motion.div>
       </div>

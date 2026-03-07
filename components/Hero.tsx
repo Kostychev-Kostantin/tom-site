@@ -32,7 +32,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2.5 bg-surface border border-[hsl(var(--border))] text-[hsl(var(--muted))] text-sm px-4 py-2 rounded-full">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              Accepting New Enterprise Partners
+              Currently Accepting New Partners
             </span>
           </motion.div>
 
@@ -43,9 +43,9 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-medium leading-[1.05] tracking-tight text-balance max-w-4xl"
           >
-            <span className="text-foreground">Operationalizing</span>
+            <span className="text-foreground">Your AI Team,</span>
             <br />
-            <span className="text-[hsl(var(--muted))]">Machine Intelligence.</span>
+            <span className="text-[hsl(var(--muted))]">Deployed and Delivering.</span>
           </motion.h1>
 
           {/* Subheading */}
@@ -55,8 +55,7 @@ export default function Hero() {
             transition={{ delay: 0.35, duration: 0.6 }}
             className="text-lg text-[hsl(var(--muted))] max-w-2xl leading-relaxed"
           >
-            We deploy agentic architectures and data engineering pipelines for
-            private equity portfolios and growth-stage enterprises.
+            We embed AI researchers and engineers directly in your organization — building production systems, training your team, and driving measurable ROI.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -70,14 +69,14 @@ export default function Hero() {
               href="#contact"
               className="group inline-flex items-center justify-center gap-2 bg-foreground text-[hsl(var(--background))] px-7 py-3.5 rounded-lg font-medium text-sm hover:bg-white transition-all duration-300"
             >
-              Start Implementation
+              Talk to Our Team
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
             </Link>
             <Link
-              href="#services"
+              href="#process"
               className="inline-flex items-center justify-center gap-2 text-foreground px-7 py-3.5 rounded-lg font-medium text-sm border border-[hsl(var(--border))] hover:border-[hsl(var(--muted))] transition-all duration-300"
             >
-              View Case Studies
+              See How We Work
             </Link>
           </motion.div>
 
@@ -91,8 +90,8 @@ export default function Hero() {
             <div className="inline-flex border border-[hsl(var(--border))] rounded-xl overflow-hidden divide-x divide-[hsl(var(--border))]">
               {[
                 { value: "3-6m", label: "TIME TO VALUE" },
-                { value: "50+", label: "ENTERPRISE CLIENTS" },
-                { value: "95%", label: "SUCCESS RATE" },
+                { value: "50+", label: "ENGAGEMENTS DELIVERED" },
+                { value: "95%", label: "CLIENT RETENTION" },
               ].map((stat, index) => (
                 <div key={index} className="px-8 py-5 text-center">
                   <div className="text-2xl md:text-3xl font-medium text-foreground">

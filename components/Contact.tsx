@@ -62,10 +62,10 @@ export default function Contact() {
           >
             <p className="text-xs text-[hsl(var(--muted))] uppercase tracking-widest mb-3">Contact</p>
             <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-4">
-              Let&apos;s Build Something Together
+              Let&apos;s Talk
             </h2>
             <p className="text-[hsl(var(--muted))] text-base leading-relaxed mb-8">
-              Ready to transform your business with AI? Reach out to discuss strategy, transformation, or an exploratory workshop.
+              Tell us what you&apos;re working on. We&apos;ll let you know if we can help — and if we can&apos;t, we&apos;ll point you in the right direction.
             </p>
             <div className="space-y-3 text-sm text-[hsl(var(--muted))]">
               <p>
@@ -148,7 +148,7 @@ export default function Contact() {
                       required
                       rows={5}
                       className="w-full px-4 py-3 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] text-foreground focus:border-[hsl(var(--muted))] focus:ring-0 transition-all duration-200 outline-none resize-none placeholder:text-[hsl(var(--muted)/0.6)] text-sm"
-                      placeholder="Tell us about your project or challenge..."
+                      placeholder="What are you trying to accomplish with AI? What's blocking you?"
                     />
                   </div>
 
