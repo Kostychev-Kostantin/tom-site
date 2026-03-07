@@ -33,46 +33,48 @@ export default function Focus() {
   ];
 
   return (
-    <section id="focus" className="py-24 bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
+    <section id="focus" className="py-24 relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-[hsl(var(--border))]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-14 max-w-3xl"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="text-yellow-300">Focus</span>
+          <p className="text-xs text-[hsl(var(--muted))] uppercase tracking-widest mb-3">Who We Serve</p>
+          <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-5">
+            Our Focus
           </h2>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-            We partner with <strong>portfolio companies of private equity firms</strong> to unlock value through AI-driven transformation. 
-            We help growing companies leverage cutting-edge technology and intelligent systems to achieve measurable outcomes, 
+          <p className="text-[hsl(var(--muted))] text-base leading-relaxed">
+            We partner with <span className="text-foreground">portfolio companies of private equity firms</span> to unlock value through AI-driven transformation.
+            We help growing companies leverage cutting-edge technology and intelligent systems to achieve measurable outcomes,
             increase market share, and build sustainable competitive advantages.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="group"
             >
-              <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                <feature.icon className="w-7 h-7 text-white" />
+              <div className="bg-surface rounded-xl p-6 border border-[hsl(var(--border))] hover:border-[hsl(var(--muted)/0.5)] transition-all duration-400 h-full">
+                <div className="w-10 h-10 rounded-lg bg-surface border border-[hsl(var(--border))] flex items-center justify-center mb-5">
+                  <feature.icon className="w-5 h-5 text-[hsl(var(--muted))]" />
+                </div>
+                <h3 className="text-base font-medium text-foreground mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-[hsl(var(--muted))] text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-blue-100">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -80,4 +82,3 @@ export default function Focus() {
     </section>
   );
 }
-
