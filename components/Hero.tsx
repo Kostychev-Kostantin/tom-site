@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
@@ -80,25 +80,32 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Stats */}
+          {/* Value block */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.6 }}
-            className="pt-6"
+            className="pt-4"
           >
-            <div className="inline-flex border border-[hsl(var(--border))] rounded-xl overflow-hidden divide-x divide-[hsl(var(--border))]">
+            <p className="text-xs uppercase tracking-[0.24em] text-[hsl(var(--muted))] mb-3">
+              What You Unlock
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-5xl">
               {[
-                { value: "3-6m", label: "TIME TO VALUE" },
-                { value: "50+", label: "ENGAGEMENTS DELIVERED" },
-                { value: "95%", label: "CLIENT RETENTION" },
-              ].map((stat, index) => (
-                <div key={index} className="px-8 py-5 text-center">
-                  <div className="text-2xl md:text-3xl font-medium text-foreground">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-[hsl(var(--muted))] mt-1 tracking-widest uppercase">
-                    {stat.label}
+                { line1: "Build an AI foundation", line2: "For 10x Growth" },
+                { line1: "Future Proof", line2: "Your Business" },
+                { line1: "Work with Industry", line2: "Leading Technologists" },
+              ].map((message, index) => (
+                <div
+                  key={index}
+                  className="rounded-xl border border-[hsl(var(--border))] bg-black/20 px-5 py-4 hover:border-[hsl(var(--muted))] transition-colors duration-300"
+                >
+                  <div className="flex items-center gap-3 min-h-[52px]">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <p className="text-sm md:text-[15px] leading-snug text-foreground font-medium">
+                      <span className="block">{message.line1}</span>
+                      <span className="block">{message.line2}</span>
+                    </p>
                   </div>
                 </div>
               ))}
