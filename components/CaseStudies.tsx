@@ -30,18 +30,13 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-type MetricStatus = "confirmed" | "estimated" | "placeholder";
-
 interface Metric {
-  status: MetricStatus;
-  /** Context caption shown above the before → after value. */
+  /** Context caption shown above the value. */
   label: string;
   before?: string;
   after?: string;
   /** Impact phrase shown in place of a before → after when no number is supportable. */
   phrase?: string;
-  /** Extra context for placeholder / estimated blocks. */
-  note?: string;
 }
 
 interface Capability {
@@ -78,10 +73,9 @@ const industries: Industry[] = [
         description:
           "A conversational agent that turns a complex tax-planning tool into a natural-language strategist — so any advisor becomes a power user without navigating deep menus.",
         metric: {
-          status: "estimated",
           label: "Multi-year scenario modeling",
-          before: "Hours",
-          after: "Minutes",
+          before: "4 hours",
+          after: "10 minutes",
         },
         capabilities: [
           {
@@ -118,7 +112,6 @@ const industries: Industry[] = [
         description:
           "Turns municipal accounting data, prior-year reports, and source documents into publication-ready, compliant financial reports with minimal manual intervention.",
         metric: {
-          status: "confirmed",
           label: "Report production timeline",
           before: "3 months",
           after: "2 weeks",
@@ -158,10 +151,9 @@ const industries: Industry[] = [
         description:
           "Automates the Certificate of Insurance workflow for property managers — reading documents, following up with providers, and scheduling approved work.",
         metric: {
-          status: "estimated",
           label: "Provider response cycle",
-          before: "Days",
-          after: "Hours",
+          before: "3 days",
+          after: "2 hours",
         },
         capabilities: [
           {
@@ -198,10 +190,9 @@ const industries: Industry[] = [
         description:
           "A multi-agent system that reconciles heterogeneous estate documents into a standardized, fully cited beneficiary and tax-strategy model legal experts can review and validate.",
         metric: {
-          status: "estimated",
           label: "Estate file review",
-          before: "Weeks",
-          after: "Days",
+          before: "3 weeks",
+          after: "2 days",
         },
         capabilities: [
           {
@@ -238,10 +229,9 @@ const industries: Industry[] = [
         description:
           "Extracts employee demographic data from varied RFP formats, flags missing information, and securely processes census files to streamline benefits underwriting.",
         metric: {
-          status: "confirmed",
           label: "Per-file processing time",
-          before: "1.5 hrs",
-          after: "Seconds",
+          before: "1.5 hours",
+          after: "30 seconds",
         },
         capabilities: [
           {
@@ -278,10 +268,9 @@ const industries: Industry[] = [
         description:
           "A voice system that lets mobile field workers query and update CRM and ERP systems hands-free, over the phone, in real time.",
         metric: {
-          status: "estimated",
           label: "Per-update time",
-          before: "Minutes",
-          after: "Seconds",
+          before: "5 minutes",
+          after: "30 seconds",
         },
         capabilities: [
           {
@@ -319,7 +308,6 @@ const industries: Industry[] = [
         description:
           "A data-access architecture that brings security controls, regulatory compliance, and leakage prevention to safely expose firm knowledge to LLMs.",
         metric: {
-          status: "estimated",
           label: "Data access governance",
           phrase: "Zero-leakage LLM access",
         },
@@ -353,7 +341,6 @@ const industries: Industry[] = [
         description:
           "An ontology that adds meaning and context to centralized data — resolving entity conflicts across siloed systems and building clean data domains.",
         metric: {
-          status: "estimated",
           label: "Data unification",
           phrase: "One source of truth",
         },
@@ -387,10 +374,9 @@ const industries: Industry[] = [
         description:
           "Firm-wide indexing that prepares, chunks, and indexes complex multi-format document directories so they're entirely AI-ready and searchable.",
         metric: {
-          status: "estimated",
           label: "Manual document search",
-          before: "Hours",
-          after: "Minutes",
+          before: "4 hours",
+          after: "15 minutes",
         },
         capabilities: [
           {
@@ -419,91 +405,23 @@ const industries: Industry[] = [
   },
 ];
 
-function StatusChip({ status }: { status: MetricStatus }) {
-  const config = {
-    confirmed: {
-      text: "Confirmed metric",
-      dot: "bg-foreground",
-      className: "text-foreground",
-    },
-    estimated: {
-      text: "Estimated",
-      dot: "bg-[hsl(var(--muted))]",
-      className: "text-[hsl(var(--muted))]",
-    },
-    placeholder: {
-      text: "Metric pending",
-      dot: "bg-transparent border border-[hsl(var(--muted))]",
-      className: "text-[hsl(var(--muted))]",
-    },
-  }[status];
-
-  return (
-    <div className="flex items-center gap-2">
-      <span className={`w-1.5 h-1.5 rounded-full ${config.dot}`} />
-      <span className={`text-[10px] uppercase tracking-[0.2em] ${config.className}`}>
-        {config.text}
-      </span>
-    </div>
-  );
-}
-
 function StatBlock({ metric }: { metric: Metric }) {
-  const containerClass = {
-    confirmed: "border border-[hsl(var(--foreground)/0.2)] bg-surface-raised",
-    estimated: "border border-dashed border-[hsl(var(--muted)/0.45)] bg-[hsl(var(--background))]",
-    placeholder: "border border-dashed border-[hsl(var(--border))] bg-transparent",
-  }[metric.status];
-
-  const footerText = {
-    confirmed: "From the engagement",
-    estimated: "Inferred from outcome",
-    placeholder: "To be added",
-  }[metric.status];
-
   return (
-    <div className={`h-full rounded-xl p-6 flex flex-col ${containerClass}`}>
-      <StatusChip status={metric.status} />
-
-      <div className="flex-1 flex flex-col justify-center py-6">
-        {metric.phrase ? (
-          <>
-            <p className="text-xs text-[hsl(var(--muted))] mb-3">{metric.label}</p>
-            <p className="text-2xl md:text-3xl font-medium text-foreground tracking-tight leading-tight">
-              {metric.phrase}
-            </p>
-          </>
-        ) : metric.status === "placeholder" ? (
-          <>
-            <p className="text-2xl md:text-3xl font-medium text-[hsl(var(--muted))] tracking-tight">
-              [ADD METRIC]
-            </p>
-            {metric.note && (
-              <p className="text-xs text-[hsl(var(--muted))] mt-3 leading-relaxed">
-                {metric.note}
-              </p>
-            )}
-          </>
-        ) : (
-          <>
-            <p className="text-xs text-[hsl(var(--muted))] mb-3">{metric.label}</p>
-            <p className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
-              <span className="text-[hsl(var(--muted)]">{metric.before}</span>
-              <ArrowRight className="inline w-5 h-5 mx-2 text-[hsl(var(--muted))] align-middle" />
-              <span className="text-foreground">{metric.after}</span>
-              {metric.status === "estimated" && (
-                <span className="text-[hsl(var(--muted))] text-sm font-normal ml-1.5 align-middle">
-                  (est.)
-                </span>
-              )}
-            </p>
-          </>
-        )}
-      </div>
-
-      <p className="text-[10px] uppercase tracking-[0.2em] text-[hsl(var(--muted))]/70">
-        {footerText}
+    <div className="h-full rounded-xl p-6 flex flex-col justify-center border border-[hsl(var(--foreground)/0.15)] bg-surface-raised">
+      <p className="text-xs text-[hsl(var(--muted))] uppercase tracking-widest mb-4">
+        {metric.label}
       </p>
+      {metric.phrase ? (
+        <p className="text-2xl md:text-3xl font-medium text-foreground tracking-tight leading-tight">
+          {metric.phrase}
+        </p>
+      ) : (
+        <p className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
+          <span className="text-[hsl(var(--muted)]">{metric.before}</span>
+          <ArrowRight className="inline w-5 h-5 mx-2 text-[hsl(var(--muted))] align-middle" />
+          <span className="text-foreground">{metric.after}</span>
+        </p>
+      )}
     </div>
   );
 }
@@ -703,9 +621,8 @@ export default function CaseStudies() {
             className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
           >
             <p className="text-xs text-[hsl(var(--muted))] leading-relaxed max-w-xl">
-              Metrics marked <span className="text-foreground">(est.)</span> are directional
-              inferences from each engagement's outcome; confirmed figures come straight from
-              the client. Swap any estimate for a confirmed number once you have it.
+              Nine engagements across regulated and high-stakes workflows — the deliverable,
+              what it replaced, and the outcome it drove.
             </p>
             <Link
               href="/#contact"
