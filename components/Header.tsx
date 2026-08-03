@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,10 +20,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const hash = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+
   const navItems = [
-    { label: "Services", href: "#services" },
-    { label: "Process", href: "#process" },
-    { label: "Why Us", href: "#why-us" },
+    { label: "Services", href: hash("services") },
+    { label: "Process", href: hash("process") },
+    { label: "Why Us", href: hash("why-us") },
+    { label: "Case Studies", href: "/case-studies" },
   ];
 
   return (
@@ -56,7 +62,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="#contact"
+              href={hash("contact")}
               className="border border-foreground text-foreground px-5 py-2 rounded-lg text-sm font-medium hover:bg-foreground hover:text-[hsl(var(--background))] transition-all duration-300"
             >
               Talk to Us
@@ -95,7 +101,7 @@ export default function Header() {
               ))}
               <div className="pt-4">
                 <Link
-                  href="#contact"
+                  href={hash("contact")}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block text-center border border-foreground text-foreground px-6 py-3 rounded-lg text-sm font-medium"
                 >

@@ -1,17 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Linkedin, Twitter, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const hash = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 
   const navLinks = [
-    { label: "Services", href: "#services" },
-    { label: "Process", href: "#process" },
-    { label: "Why Us", href: "#why-us" },
-    { label: "Focus", href: "#focus" },
-    { label: "Contact", href: "#contact" },
+    { label: "Services", href: hash("services") },
+    { label: "Process", href: hash("process") },
+    { label: "Why Us", href: hash("why-us") },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Focus", href: hash("focus") },
+    { label: "Contact", href: hash("contact") },
   ];
 
   return (
