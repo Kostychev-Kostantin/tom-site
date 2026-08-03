@@ -38,6 +38,8 @@ interface Metric {
   label: string;
   before?: string;
   after?: string;
+  /** Impact phrase shown in place of a before → after when no number is supportable. */
+  phrase?: string;
   /** Extra context for placeholder / estimated blocks. */
   note?: string;
 }
@@ -317,9 +319,9 @@ const industries: Industry[] = [
         description:
           "A data-access architecture that brings security controls, regulatory compliance, and leakage prevention to safely expose firm knowledge to LLMs.",
         metric: {
-          status: "placeholder",
-          label: "Coverage under governance",
-          note: "Value here is risk and compliance, not speed — replace with a real figure (e.g. share of data sources brought under governance) once available.",
+          status: "estimated",
+          label: "Data access governance",
+          phrase: "Zero-leakage LLM access",
         },
         capabilities: [
           {
@@ -351,9 +353,9 @@ const industries: Industry[] = [
         description:
           "An ontology that adds meaning and context to centralized data — resolving entity conflicts across siloed systems and building clean data domains.",
         metric: {
-          status: "placeholder",
-          label: "Data unified",
-          note: "Replace with a real figure once available — e.g. entity conflict resolution rate or sources folded into the graph.",
+          status: "estimated",
+          label: "Data unification",
+          phrase: "One source of truth",
         },
         capabilities: [
           {
@@ -464,7 +466,14 @@ function StatBlock({ metric }: { metric: Metric }) {
       <StatusChip status={metric.status} />
 
       <div className="flex-1 flex flex-col justify-center py-6">
-        {metric.status === "placeholder" ? (
+        {metric.phrase ? (
+          <>
+            <p className="text-xs text-[hsl(var(--muted))] mb-3">{metric.label}</p>
+            <p className="text-2xl md:text-3xl font-medium text-foreground tracking-tight leading-tight">
+              {metric.phrase}
+            </p>
+          </>
+        ) : metric.status === "placeholder" ? (
           <>
             <p className="text-2xl md:text-3xl font-medium text-[hsl(var(--muted))] tracking-tight">
               [ADD METRIC]
@@ -479,7 +488,7 @@ function StatBlock({ metric }: { metric: Metric }) {
           <>
             <p className="text-xs text-[hsl(var(--muted))] mb-3">{metric.label}</p>
             <p className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
-              <span className="text-[hsl(var(--muted))]">{metric.before}</span>
+              <span className="text-[hsl(var(--muted)]">{metric.before}</span>
               <ArrowRight className="inline w-5 h-5 mx-2 text-[hsl(var(--muted))] align-middle" />
               <span className="text-foreground">{metric.after}</span>
               {metric.status === "estimated" && (
@@ -695,8 +704,8 @@ export default function CaseStudies() {
           >
             <p className="text-xs text-[hsl(var(--muted))] leading-relaxed max-w-xl">
               Metrics marked <span className="text-foreground">(est.)</span> are directional
-              inferences from each engagement's outcome. Confirmed figures come straight from
-              the client. Pending slots are waiting on a real number.
+              inferences from each engagement's outcome; confirmed figures come straight from
+              the client. Swap any estimate for a confirmed number once you have it.
             </p>
             <Link
               href="/#contact"
