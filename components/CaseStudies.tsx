@@ -308,8 +308,8 @@ const industries: Industry[] = [
         description:
           "A data-access architecture that brings security controls, regulatory compliance, and leakage prevention to safely expose firm knowledge to LLMs.",
         metric: {
-          label: "Data access governance",
-          phrase: "Zero-leakage LLM access",
+          label: "Data governance",
+          phrase: "End-to-end Compliance Coverage",
         },
         capabilities: [
           {
@@ -341,8 +341,8 @@ const industries: Industry[] = [
         description:
           "An ontology that adds meaning and context to centralized data — resolving entity conflicts across siloed systems and building clean data domains.",
         metric: {
-          label: "Data unification",
-          phrase: "One source of truth",
+          label: "Data foundation",
+          phrase: "Unified Definitions and Data Access",
         },
         capabilities: [
           {
@@ -374,9 +374,8 @@ const industries: Industry[] = [
         description:
           "Firm-wide indexing that prepares, chunks, and indexes complex multi-format document directories so they're entirely AI-ready and searchable.",
         metric: {
-          label: "Manual document search",
-          before: "4 hours",
-          after: "15 minutes",
+          label: "Firm knowledge",
+          phrase: "Institutional Memory Retention",
         },
         capabilities: [
           {
@@ -408,17 +407,17 @@ const industries: Industry[] = [
 function StatBlock({ metric }: { metric: Metric }) {
   return (
     <div className="h-full rounded-xl p-6 flex flex-col justify-center border border-[hsl(var(--foreground)/0.15)] bg-surface-raised">
-      <p className="text-xs text-[hsl(var(--muted))] uppercase tracking-widest mb-4">
+      <p className="text-[13px] text-[hsl(var(--muted))] uppercase tracking-widest mb-4">
         {metric.label}
       </p>
       {metric.phrase ? (
-        <p className="text-2xl md:text-3xl font-medium text-foreground tracking-tight leading-tight">
+        <p className="text-3xl md:text-4xl font-medium text-foreground tracking-tight leading-tight">
           {metric.phrase}
         </p>
       ) : (
-        <p className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
+        <p className="text-3xl md:text-4xl font-medium tracking-tight leading-tight">
           <span className="text-[hsl(var(--muted)]">{metric.before}</span>
-          <ArrowRight className="inline w-5 h-5 mx-2 text-[hsl(var(--muted))] align-middle" />
+          <ArrowRight className="inline w-6 h-6 mx-2 text-[hsl(var(--muted))] align-middle" />
           <span className="text-foreground">{metric.after}</span>
         </p>
       )}
@@ -461,7 +460,7 @@ function CasePanel({ study, eyebrow }: { study: CaseStudy; eyebrow: string }) {
         {study.description}
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,260px)_1fr] gap-4 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,300px)_1fr] gap-4 mb-6">
         <StatBlock metric={study.metric} />
         <Capabilities items={study.capabilities} />
       </div>
