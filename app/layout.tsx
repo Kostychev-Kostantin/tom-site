@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 
 const geist = localFont({
@@ -29,6 +30,11 @@ export default function RootLayout({
     <html lang="en" className={`scroll-smooth ${geist.variable}`}>
       <body className="font-sans antialiased">
         {children}
+        <Script
+          src="https://visitor-id.prd.coffee.work/pixel?id=e3bc0916-241c-45a9-bb21-4e712ee17aec"
+          strategy="afterInteractive"
+          async
+        />
       </body>
     </html>
   );
